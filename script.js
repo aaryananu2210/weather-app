@@ -1,46 +1,44 @@
-let cityInput =
-document.querySelector("#cityInput");
+let cityInput = document.querySelector("#cityInput");
+let button = document.querySelector("#btn");
 
-let button =
-document.querySelector("#btn");
+let city = document.querySelector("#city");
+let temp = document.querySelector("#temp");
+let condition = document.querySelector("#condition");
+let humidity = document.querySelector("#humidity");
+let windSpeed = document.querySelector("#windspeed");
 
-let city =
-document.querySelector("#city");
+let resetButton = document.querySelector("#resetBtn");
+let weatherIcon = document.querySelector("#weatherIcon");
 
-let temp =
-document.querySelector("#temp");
+function clearWeather() {
+    city.innerText = "";
+    temp.innerText = "";
+    condition.innerText = "";
+    humidity.innerText = "";
+    windSpeed.innerText = "";
 
-let condition =
-document.querySelector("#condition");
+    weatherIcon.src = "";
+}
 
-let humidity =
-document.querySelector("#humidity");
+function getWeather() {
 
-let resetButton =
-document.querySelector("#resetBtn");
+    let cityName = cityInput.value.trim();
 
-let windSpeed =
-document.querySelector("#windspeed");
-
-let weatherIcon =
-document.querySelector("#weatherIcon");
-
-
-button.addEventListener("click", function () {
-
-    let cityName =
-    cityInput.value;
+    if (cityName === "") {
+        alert("Please enter a city name");
+        return;
+    }
 
     fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q="
-    + cityName
-    + "&appid=5b1e4d3a47ce9196c8cfd8411d734ae9&units=metric"
+        "https://api.openweathermap.org/data/2.5/weather?q="
+        + cityName
+        + "&appid="
+        + API_KEY
+        + "&units=metric"
     )
 
     .then(function (response) {
-
         return response.json();
-
     })
 
     .then(function (data) {
@@ -68,7 +66,6 @@ button.addEventListener("click", function () {
             "💨 WIND SPEED: "
             + data.wind.speed + " Km/h";
 
-
             let iconCode =
             data.weather[0].icon;
 
@@ -77,9 +74,7 @@ button.addEventListener("click", function () {
             + iconCode
             + "@2x.png";
 
-        }
-
-        else {
+        } else {
 
             city.innerText =
             "❌ City not found / API issue";
@@ -91,51 +86,29 @@ button.addEventListener("click", function () {
 
             weatherIcon.src = "";
         }
+    })
 
+    .catch(function () {
+        city.innerText =
+        "❌ Something went wrong";
     });
+}
 
-});
+button.addEventListener("click", getWeather);
 
+cityInput.addEventListener("keydown", function (event) {
 
-document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        getWeather();
+    }
 
     if (event.key === "Escape") {
-
         cityInput.value = "";
-
-        city.innerText = "";
-        temp.innerText = "";
-        condition.innerText = "";
-        humidity.innerText = "";
-        windSpeed.innerText = "";
-
-        weatherIcon.src = "";
+        clearWeather();
     }
-
 });
-
 
 resetButton.addEventListener("click", function () {
-
     cityInput.value = "";
-
-    city.innerText = "";
-    temp.innerText = "";
-    condition.innerText = "";
-    humidity.innerText = "";
-    windSpeed.innerText = "";
-
-    weatherIcon.src = "";
+    clearWeather();
 });
-
-
-cityInput.addEventListener("keydown", function(event){
-
-    if(event.key === "Enter"){
-
-        button.click();
-
-    }
-
-});
-
