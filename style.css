@@ -1,0 +1,143 @@
+body {
+    background-color: #071a33;
+
+    background-image:
+    url("images/cloud.png"),
+    url("images/sun.png"),
+    linear-gradient(to bottom, #071a33, #0b2d5a);
+
+    background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+    background-size:
+    520px,
+    350px,
+    cover;
+
+    background-position:
+    left -35px bottom -35px,
+    right 20px top 20px,
+    center;
+
+    color: white;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+.main-container {
+    text-align: center;
+    transform: translateY(-90px);
+}
+
+.main-title {
+    font-size: 72px;
+    margin-bottom: 40px;
+
+    color: #87cefa;
+    font-weight: bold;
+
+    text-shadow:
+        0px 0px 15px rgba(135, 206, 250, 0.8),
+        0px 0px 35px rgba(135, 206, 250, 0.35);
+}
+
+.container {
+    background: rgba(20, 40, 75, 0.88);
+
+    backdrop-filter: blur(12px);
+
+    padding: 45px;
+    border-radius: 28px;
+
+    width: 460px;
+    text-align: center;
+
+    box-shadow:
+        0px 0px 45px rgba(80, 170, 255, 0.18);
+
+    border:
+        1px solid rgba(173, 216, 230, 0.12);
+}
+
+input {
+    width: 90%;
+
+    padding: 16px;
+    border-radius: 14px;
+
+    border: 2px solid #55b8ff;
+    background-color: #1b3d66;
+
+    color: white;
+    font-size: 16px;
+
+    outline: none;
+    margin-bottom: 18px;
+}
+
+input::placeholder {
+    color: #b0cde7;
+}
+
+button {
+    background:
+        linear-gradient(to right, #5db7ff, #89d3ff);
+
+    color: #071a33;
+
+    border: none;
+    border-radius: 14px;
+
+    padding: 14px 20px;
+    margin: 6px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.25s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+#city {
+    font-size: 38px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+
+    color: #87cefa;
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+    margin: 12px 0;
+
+    background-color: rgba(135, 206, 250, 0.08);
+
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p:empty {
+    display: none;
+}
+
+#weatherIcon {
+    width: 90px;
+    margin: 5px auto 15px auto;
+    display: block;
+}
