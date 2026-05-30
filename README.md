@@ -14,6 +14,7 @@ A stylish weather application built using **HTML, CSS, and JavaScript** with **O
 * ⎋ Escape key reset
 * 🎨 Modern weather-themed UI
 
+
 ## 🛠️ Tech Stack
 
 * HTML
@@ -23,7 +24,9 @@ A stylish weather application built using **HTML, CSS, and JavaScript** with **O
 
 ## 📸 Preview
 
-(Add screenshot here later)
+![Weather App Preview](images/WeatherApp_1.png)
+![Weather App Preview](images/WeatherApp_2.png)
+![Weather App Preview](images/WeatherApp_3.png)
 
 ## ⚙️ How to Run
 
